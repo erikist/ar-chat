@@ -17,5 +17,7 @@ Let's begin by adding our dependencies. Alter your `app/build.gradle` file, by a
     implementation 'com.google.ar:core:1.2.0'
 ``` 
 
-These are provided in the `jcenter()` and `google()` repositories, and both are added by default in Android Studio. These contain the APIs for both programmable video and ARChat, and we will be exploring a little of what can be done with them in this blog post.
+These are provided in the `jcenter()` and `google()` repositories; both are added by default in Android Studio. These contain the APIs for both programmable video and ARChat, and we will be exploring a little of what can be done with them in this blog post.
+
+In addition, if you want to follow along, we will be [using databinding](https://developer.android.com/topic/libraries/data-binding/start) for this tutorial. _We are not savages._
 

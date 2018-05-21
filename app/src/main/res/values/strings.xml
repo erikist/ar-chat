@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TwilioArChat</string>
+    <string name="welcome_message">Welcome to the wild and wonderful world of ARChat -- enter a username and join a room</string>
 </resources>

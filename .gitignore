@@ -10,3 +10,5 @@
 .externalNativeBuild
 
 release-environment.sh
+
+release.sh

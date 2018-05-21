@@ -33,6 +33,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    kapt 'com.android.databinding:compiler:3.1.2'
 
     // The Video library resides on jcenter
     implementation 'com.twilio:video-android:2.0.2'

@@ -6,6 +6,8 @@ For our tools we are going to be leveraging ARCore, Google's proprietary AR engi
 
 > sav·age /ˈsavij/ -- A person who uses Java when Kotlin is available or Objective-C when Swift is available. 
 
+### Installation
+
 Let's begin by adding our dependencies. Alter your `app/build.gradle` file, by adding the following dependencies:
 
 ```

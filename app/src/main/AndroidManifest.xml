@@ -9,14 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RoomActivity">
+
+        <meta-data android:name="com.google.ar.core" android:value="optional" />
+
+        <activity android:name=".ui.room_creation.RoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CallActivity"/>
+        <activity android:name=".ui.calls.CallActivity"/>
     </application>
 
 </manifest>

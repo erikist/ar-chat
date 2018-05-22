@@ -47,4 +47,6 @@ dependencies {
     implementation 'com.twilio:video-android:2.0.2'
     // ARCore library
     implementation 'com.google.ar:core:1.2.0'
+    // Gson deserialization framework for Java
+    implementation 'com.google.code.gson:gson:2.8.4'
 }

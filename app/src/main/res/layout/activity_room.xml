@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.stablekernel.twilioarchat.RoomActivityViewModel"/>
+            type="com.stablekernel.twilioarchat.ui.room_creation.RoomActivityViewModel"/>
     </data>
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/default_spacing"
-        tools:context=".RoomActivity">
+        tools:context=".ui.room_creation.RoomActivity">
 
         <Space
             android:layout_width="match_parent"

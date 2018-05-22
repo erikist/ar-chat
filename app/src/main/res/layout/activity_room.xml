@@ -60,13 +60,30 @@
                 android:text="@={vm.room}"/>
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.v7.widget.AppCompatButton
-            style="@style/AppTheme.Button"
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="@{vm.joinEnabled}"
-            android:onClick="@{() -> vm.onJoinClicked()}"
-            android:text="@string/join_room"/>
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="@{vm.inputValid}"
+                android:onClick="@{() -> vm.onJoinClicked()}"
+                android:text="@string/join_room"/>
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="@{vm.inputValid}"
+                android:onClick="@{() -> vm.onHostClicked()}"
+                android:text="@string/join_room"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
 
         <Space
             android:layout_width="match_parent"

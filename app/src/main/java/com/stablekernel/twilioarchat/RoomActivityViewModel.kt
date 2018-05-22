@@ -1,7 +1,6 @@
 package com.stablekernel.twilioarchat
 
 import android.databinding.BaseObservable
-import android.util.Log
 
 
 class RoomActivityViewModel: BaseObservable() {
@@ -16,10 +15,14 @@ class RoomActivityViewModel: BaseObservable() {
             notifyChange()
         }
 
-    val isJoinEnabled: Boolean
+    val isInputValid: Boolean
         get() = room.isNotBlank() && username.isNotBlank()
 
     fun onJoinClicked() {
-        Log.d(RoomActivityViewModel::class.java.simpleName, "$username wants to join $room")
+
+    }
+
+    fun onHostClicked() {
+
     }
 }

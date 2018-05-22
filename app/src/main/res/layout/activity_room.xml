@@ -81,7 +81,7 @@
                 android:layout_weight="1"
                 android:enabled="@{vm.inputValid}"
                 android:onClick="@{() -> vm.onHostClicked()}"
-                android:text="@string/join_room"/>
+                android:text="@string/host_room"/>
 
         </android.support.v7.widget.LinearLayoutCompat>
 

@@ -17,7 +17,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "TWILIO_API_KEY", "\"${System.getenv("TWILIO_AR_CHAT_KEY")}\"")
+        }
         release {
+            buildConfigField("String", "TWILIO_API_KEY", "\"${System.getenv("TWILIO_AR_CHAT_KEY")}\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

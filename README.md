@@ -1,4 +1,4 @@
-# AR Chat
+# AR Chat [![Build Status](https://www.bitrise.io/app/610e7fa57fe13251/status.svg?token=SEQQEFc-va9jbjqe_p8Q3w)](https://www.bitrise.io/app/610e7fa57fe13251)
 
 This [project](https://github.com/erikist/ar-chat/tree/master) will hopefully help explain how to build an AR chat application. The concept is simple: One user initiates a call and will host a video stream for their friends to get in on. People who join the call afterwards can then draw in their friend's worldspace. 
 

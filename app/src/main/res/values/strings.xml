@@ -5,4 +5,5 @@
     <string name="host_room">Host</string>
     <string name="room">Room</string>
     <string name="username">Username</string>
+    <string name="loading">Loading...</string>
 </resources>

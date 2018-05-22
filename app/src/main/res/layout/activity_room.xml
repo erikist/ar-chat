@@ -17,10 +17,21 @@
         android:padding="@dimen/default_spacing"
         tools:context=".RoomActivity">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_message"/>
+            android:text="@string/welcome_message"
+            android:textAlignment="center"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -29,7 +40,9 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
+                android:hint="@string/username"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:text="@={vm.username}"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -38,10 +51,27 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/roomEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Room"
+                android:hint="@string/room"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                 android:text="@={vm.room}"/>
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{vm.joinEnabled}"
+            android:onClick="@{() -> vm.onJoinClicked()}"
+            android:text="@string/join_room"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
     </android.support.v7.widget.LinearLayoutCompat>
 </layout>

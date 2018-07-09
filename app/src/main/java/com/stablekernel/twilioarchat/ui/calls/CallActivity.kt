@@ -9,12 +9,13 @@ import com.stablekernel.twilioarchat.BuildConfig
 import com.stablekernel.twilioarchat.R
 import com.stablekernel.twilioarchat.config.ExtraKeys
 import com.stablekernel.twilioarchat.models.ARDataMessage
+import com.stablekernel.twilioarchat.ui.calls.making.MakingCallActivity
+import com.stablekernel.twilioarchat.ui.calls.receiving.ReceivingCallActivity
 import com.twilio.video.*
 import java.nio.ByteBuffer
 
 
-class CallActivity: AppCompatActivity(), CallCapable {
-
+abstract class CallActivity : AppCompatActivity(), CallCapable {
     private lateinit var callModel: CallModel
     private lateinit var callManager: CallManager
 
@@ -34,16 +35,16 @@ class CallActivity: AppCompatActivity(), CallCapable {
     }
 
     companion object {
-        fun intentFor(context: Context, type: CallModel.CallType, roomName: String, username: String): Intent {
-            return Intent(context, CallActivity::class.java)
-                    .putExtra(ExtraKeys.IS_HOSTING, type == CallModel.CallType.HOST)
+        fun intentFor(context: Context, isHosting: Boolean, roomName: String, username: String): Intent {
+            return Intent(context, if (isHosting) MakingCallActivity::class.java else ReceivingCallActivity::class.java)
+                    .putExtra(ExtraKeys.IS_HOSTING, isHosting)
                     .putExtra(ExtraKeys.ROOM_NAME, roomName)
                     .putExtra(ExtraKeys.USERNAME, username)
         }
 
         fun modelFromIntent(intent: Intent): CallModel {
             return CallModel(
-                    if(intent.extras.getBoolean(ExtraKeys.IS_HOSTING)) CallModel.CallType.HOST else CallModel.CallType.JOIN,
+                    if (intent.extras.getBoolean(ExtraKeys.IS_HOSTING)) CallModel.CallType.HOST else CallModel.CallType.JOIN,
                     intent.extras.getString(ExtraKeys.ROOM_NAME),
                     intent.extras.getString(ExtraKeys.USERNAME)
             )
@@ -268,19 +269,18 @@ class CallModel(val type: CallType, val roomName: String, val username: String) 
     var callCapabilities: CallCapable? = null
 
     val canMakeCall: Boolean
-        get() {
-            return when(type) {
-                CallModel.CallType.HOST -> callCapabilities?.canUseAr() == true
-                CallModel.CallType.JOIN -> true
-            }
+        get() = when (type) {
+            CallModel.CallType.HOST -> callCapabilities?.canUseAr() == true
+            CallModel.CallType.JOIN -> true
         }
+
     val isHost: Boolean
-        get() = type == CallType.HOST
+        get() = type == CallModel.CallType.HOST
 }
 
 interface CallCapable {
-    fun canUseAr():Boolean = false
-    fun isArCoreInstalled():Boolean = false
+    fun canUseAr(): Boolean = false
+    fun isArCoreInstalled(): Boolean = false
     fun requestArCore() {
         if (isArCoreInstalled()) {
             throw IllegalStateException("Cannot Request ARCore download when ARCore is already installed")

@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.calls.CallActivity"/>
+        <activity android:name=".ui.calls.receiving.ReceivingCallActivity"/>
+        <activity android:name=".ui.calls.making.MakingCallActivity"/>
+        <activity android:name=".ui.permissions.PermissionsActivity"/>
     </application>
 
 </manifest>

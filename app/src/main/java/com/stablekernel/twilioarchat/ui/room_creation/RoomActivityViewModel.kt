@@ -3,9 +3,8 @@ package com.stablekernel.twilioarchat.ui.room_creation
 import android.content.Context
 import android.databinding.BaseObservable
 import com.stablekernel.twilioarchat.ui.calls.CallActivity
-import com.stablekernel.twilioarchat.ui.calls.CallModel
 
-class RoomActivityViewModel(): BaseObservable() {
+class RoomActivityViewModel : BaseObservable() {
     var room: String = ""
         set(value) {
             field = value
@@ -21,8 +20,8 @@ class RoomActivityViewModel(): BaseObservable() {
         get() = room.isNotBlank() && username.isNotBlank()
 
     fun onJoinClicked(context: Context) =
-        context.startActivity(CallActivity.intentFor(context , CallModel.CallType.JOIN, room, username))
+        context.startActivity(CallActivity.intentFor(context , false, room, username))
 
     fun onHostClicked(context: Context) =
-        context.startActivity(CallActivity.intentFor(context , CallModel.CallType.HOST, room, username))
+        context.startActivity(CallActivity.intentFor(context , true, room, username))
 }

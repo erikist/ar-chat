@@ -6,19 +6,17 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.stablekernel.twilioarchat.BuildConfig
-import com.stablekernel.twilioarchat.ExtraKeys
 import com.stablekernel.twilioarchat.R
+import com.stablekernel.twilioarchat.config.ExtraKeys
 import com.stablekernel.twilioarchat.models.ARDataMessage
 import com.twilio.video.*
 import java.nio.ByteBuffer
 
 
-abstract class CallActivity: AppCompatActivity(), CallCapable {
+class CallActivity: AppCompatActivity(), CallCapable {
 
-    lateinit var callModel: CallModel
-    lateinit var callManager: CallManager
-
-    private val mUserRequestedInstall = true
+    private lateinit var callModel: CallModel
+    private lateinit var callManager: CallManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

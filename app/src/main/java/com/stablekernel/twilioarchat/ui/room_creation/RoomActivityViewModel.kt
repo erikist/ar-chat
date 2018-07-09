@@ -5,7 +5,7 @@ import android.databinding.BaseObservable
 import com.stablekernel.twilioarchat.ui.calls.CallActivity
 import com.stablekernel.twilioarchat.ui.calls.CallModel
 
-class RoomActivityViewModel(val context: Context): BaseObservable() {
+class RoomActivityViewModel(): BaseObservable() {
     var room: String = ""
         set(value) {
             field = value
@@ -20,11 +20,9 @@ class RoomActivityViewModel(val context: Context): BaseObservable() {
     val isInputValid: Boolean
         get() = room.isNotBlank() && username.isNotBlank()
 
-    fun onJoinClicked() {
-        CallActivity.intentFor(context , CallModel.CallType.JOIN, room, username)
-    }
+    fun onJoinClicked(context: Context) =
+        context.startActivity(CallActivity.intentFor(context , CallModel.CallType.JOIN, room, username))
 
-    fun onHostClicked() {
-        CallActivity.intentFor(context , CallModel.CallType.HOST, room, username)
-    }
+    fun onHostClicked(context: Context) =
+        context.startActivity(CallActivity.intentFor(context , CallModel.CallType.HOST, room, username))
 }

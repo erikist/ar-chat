@@ -62,3 +62,17 @@ For our application, we are going to have two main activities. We are going to h
 
 ### RoomActivity
 
+The creation of the `RoomActivity` is easy-as-pie. We are going to create a layout which has some inputs for username and room name, and let the view model handle validation and user interaction. The Activity is now solely used for configuration -- let's give it a try: 
+
+```
+    //...
+    private val viewModel = RoomActivityViewModel(this)
+
+    override fun onCreate(savedInstanceState: Bundle?) = super.onCreate(savedInstanceState).also {
+        DataBindingUtil.setContentView<ActivityRoomBinding>(this, R.layout.activity_room).apply {
+            vm = viewModel
+        }
+    }
+```
+
+

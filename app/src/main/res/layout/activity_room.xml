@@ -77,7 +77,7 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_join"
                 android:enabled="@{vm.inputValid}"
-                android:onClick="@{() -> vm.onJoinClicked()}"
+                android:onClick="@{(view) -> vm.onJoinClicked(view.context)}"
                 android:text="@string/join_room"/>
 
             <android.support.v7.widget.AppCompatButton
@@ -87,7 +87,7 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_host"
                 android:enabled="@{vm.inputValid}"
-                android:onClick="@{() -> vm.onHostClicked()}"
+                android:onClick="@{(view) -> vm.onHostClicked(view.context)}"
                 android:text="@string/host_room"/>
 
         </android.support.v7.widget.LinearLayoutCompat>

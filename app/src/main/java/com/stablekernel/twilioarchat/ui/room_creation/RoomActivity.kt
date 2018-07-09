@@ -8,10 +8,9 @@ import com.stablekernel.twilioarchat.databinding.ActivityRoomBinding
 
 class RoomActivity : AppCompatActivity() {
 
-    private val viewModel = RoomActivityViewModel(this)
+    private val viewModel = RoomActivityViewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) = super.onCreate(savedInstanceState).also {
         DataBindingUtil.setContentView<ActivityRoomBinding>(this, R.layout.activity_room).apply {
             vm = viewModel
         }

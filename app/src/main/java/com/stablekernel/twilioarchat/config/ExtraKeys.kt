@@ -1,4 +1,4 @@
-package com.stablekernel.twilioarchat
+package com.stablekernel.twilioarchat.config
 
 
 class ExtraKeys {

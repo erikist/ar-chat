@@ -60,7 +60,7 @@ class CallManager(val context: Context, val listener: AVListener) : RemoteDataTr
     var videoManager: VideoManager? = null
         set(value) {
             field = value
-            roomListener = value?.let { RoomListener(it) }
+            //roomListener = value?.let { RoomListener(it) }
         }
     private var roomListener: RoomListener? = null
 
@@ -117,7 +117,7 @@ class CallManager(val context: Context, val listener: AVListener) : RemoteDataTr
          */
         remoteParticipant.remoteVideoTracks.firstOrNull()?.let { remoteVideoTrackPublication ->
             if (remoteVideoTrackPublication.isTrackSubscribed) {
-                remoteVideoTrackPublication.remoteVideoTrack?.let { videoManager.removeParticipantVideo(it) }
+                remoteVideoTrackPublication.remoteVideoTrack?.let { videoManager?.removeParticipantVideo(it) }
             }
         }
 
@@ -139,7 +139,7 @@ class CallManager(val context: Context, val listener: AVListener) : RemoteDataTr
 
     fun send(arDataMessage: ARDataMessage) {
         Log.d(TAG, arDataMessage.toJson())
-        localDataTrack.send(arDataMessage.toJson())
+        localDataTrack?.send(arDataMessage.toJson())
     }
 
     override fun onMessage(remoteDataTrack: RemoteDataTrack?, messageBuffer: ByteBuffer?) {
@@ -148,7 +148,7 @@ class CallManager(val context: Context, val listener: AVListener) : RemoteDataTr
 
     override fun onMessage(remoteDataTrack: RemoteDataTrack?, message: String?) {
         Log.d(TAG, message)
-        message?.let { messageListener?.onMessageReceived(ARDataMessage.fromJson(message)) }
+//        message?.let { messageListener?.onMessageReceived(ARDataMessage.fromJson(message)) }
     }
 
     companion object {

@@ -25,13 +25,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_message"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_logo"
+            android:textSize="36dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/title"
             android:textAlignment="center"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_message"
+            android:textAlignment="center"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -70,6 +75,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_join"
                 android:enabled="@{vm.inputValid}"
                 android:onClick="@{() -> vm.onJoinClicked()}"
                 android:text="@string/join_room"/>
@@ -79,6 +85,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_host"
                 android:enabled="@{vm.inputValid}"
                 android:onClick="@{() -> vm.onHostClicked()}"
                 android:text="@string/host_room"/>

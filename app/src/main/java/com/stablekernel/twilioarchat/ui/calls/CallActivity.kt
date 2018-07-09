@@ -22,7 +22,7 @@ abstract class CallActivity : AppCompatActivity(), CallCapable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temporary)
-        callModel = modelFromIntent(intent).apply {
+        callModel = CallModel.modelFromIntent(intent).apply {
             callCapabilities = this@CallActivity
         }
     }
@@ -40,14 +40,6 @@ abstract class CallActivity : AppCompatActivity(), CallCapable {
                     .putExtra(ExtraKeys.IS_HOSTING, isHosting)
                     .putExtra(ExtraKeys.ROOM_NAME, roomName)
                     .putExtra(ExtraKeys.USERNAME, username)
-        }
-
-        fun modelFromIntent(intent: Intent): CallModel {
-            return CallModel(
-                    if (intent.extras.getBoolean(ExtraKeys.IS_HOSTING)) CallModel.CallType.HOST else CallModel.CallType.JOIN,
-                    intent.extras.getString(ExtraKeys.ROOM_NAME),
-                    intent.extras.getString(ExtraKeys.USERNAME)
-            )
         }
     }
 }
@@ -276,6 +268,17 @@ class CallModel(val type: CallType, val roomName: String, val username: String) 
 
     val isHost: Boolean
         get() = type == CallModel.CallType.HOST
+
+
+    companion object {
+        fun modelFromIntent(intent: Intent): CallModel {
+            return CallModel(
+                    if (intent.extras.getBoolean(ExtraKeys.IS_HOSTING)) CallModel.CallType.HOST else CallModel.CallType.JOIN,
+                    intent.extras.getString(ExtraKeys.ROOM_NAME),
+                    intent.extras.getString(ExtraKeys.USERNAME)
+            )
+        }
+    }
 }
 
 interface CallCapable {

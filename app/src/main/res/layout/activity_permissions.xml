@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ProgressBar
-
                 android:layout_marginRight="@dimen/default_spacing"
+                android:visibility="@{vm.cameraProgressBarVisibility}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ProgressBar
-
+                android:visibility="@{vm.audioProgressBarVisibility}"
                 android:layout_marginRight="@dimen/default_spacing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

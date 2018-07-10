@@ -40,7 +40,7 @@ class PermissionsActivity : AppCompatActivity() {
             val isGranted = grantResults[index] == PackageManager.PERMISSION_GRANTED
             when (permission) {
                 Manifest.permission.CAMERA -> { viewModel.cameraPermissionGranted = isGranted }
-                Manifest.permission.RECORD_AUDIO, Manifest.permission.MODIFY_AUDIO_SETTINGS -> { viewModel.audioPermissionGranted = isGranted }
+                Manifest.permission.RECORD_AUDIO, Manifest.permission.MODIFY_AUDIO_SETTINGS -> { viewModel.audioPermissionsGranted = isGranted }
             }
         }
     }

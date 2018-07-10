@@ -14,60 +14,65 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ProgressBar
-                android:visibility="@{vm.cameraProgressBarVisibility}"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-
-            <ImageView
-                android:src="@drawable/ic_check"
-                android:visibility="@{vm.cameraCheckVisibility}"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-
-            <ImageView
-                android:src="@drawable/ic_x"
-                android:visibility="@{vm.cameraExVisibility}"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-
-            <TextView
-                android:layout_gravity="center_vertical"
-                android:text="Camera Permissions"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:visibility="@{vm.cameraProgressBarVisibility}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ProgressBar
-                android:visibility="@{vm.audioProgressBarVisibility}"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                <ImageView
+                    android:src="@drawable/ic_check"
+                    android:visibility="@{vm.cameraCheckVisibility}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
 
-            <ImageView
-                android:src="@drawable/ic_check"
-                android:visibility="@{vm.audioCheckVisibility}"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                <ImageView
+                    android:src="@drawable/ic_x"
+                    android:visibility="@{vm.cameraExVisibility}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
 
-            <ImageView
-                android:src="@drawable/ic_x"
-                android:visibility="@{vm.audioExVisibility}"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="Camera Permissions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_gravity="center_vertical"
-                android:text="Audio Permissions"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:visibility="@{vm.audioProgressBarVisibility}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
 
+                <ImageView
+                    android:src="@drawable/ic_check"
+                    android:visibility="@{vm.audioCheckVisibility}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <ImageView
+                    android:src="@drawable/ic_x"
+                    android:visibility="@{vm.audioExVisibility}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="Audio Permissions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </layout>

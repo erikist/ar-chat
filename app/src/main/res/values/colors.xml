@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">@color/foreground</color>
+    <color name="colorPrimaryDark">@color/background</color>
+    <color name="colorAccent">@color/accent</color>
+
     <color name="background">#1F1E33</color>
+    <color name="background_light">#525166</color>
+
+    <color name="foreground_dark">#75B3CC</color>
     <color name="foreground">#A8E6FF</color>
+    <color name="foreground_light">#DBFFFF</color>
     <color name="accent">#EBBFCA</color>
 </resources>

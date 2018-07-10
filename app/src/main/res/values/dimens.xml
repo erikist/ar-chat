@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_spacing">12dp</dimen>
+    <dimen name="default_spacing_half">6dp</dimen>
+    <dimen name="default_rounding">12dp</dimen>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="@color/foreground_dark"/>
+
+            <corners
+                android:radius="@dimen/default_rounding"/>
+            <padding
+                android:bottom="@dimen/default_spacing_half"
+                android:left="@dimen/default_spacing_half"
+                android:right="@dimen/default_spacing_half"
+                android:top="@dimen/default_spacing_half"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/foreground"/>
+
+            <corners
+                android:radius="@dimen/default_rounding"/>
+            <padding
+                android:bottom="@dimen/default_spacing_half"
+                android:left="@dimen/default_spacing_half"
+                android:right="@dimen/default_spacing_half"
+                android:top="@dimen/default_spacing_half"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <solid android:color="@color/foreground"/>
+
+            <corners
+                android:radius="@dimen/default_rounding"/>
+            <padding
+                android:bottom="@dimen/default_spacing_half"
+                android:left="@dimen/default_spacing_half"
+                android:right="@dimen/default_spacing_half"
+                android:top="@dimen/default_spacing_half"/>
+        </shape>
+    </item>
+
+</selector>

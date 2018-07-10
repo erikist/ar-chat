@@ -39,29 +39,34 @@
             android:textAlignment="center"/>
 
         <android.support.design.widget.TextInputLayout
+            style="@style/AppTheme.TextInputLayout"
+            android:hint="@string/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                style="@style/AppTheme.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/username"
                 android:imeOptions="actionNext"
                 android:singleLine="true"
                 android:text="@={vm.username}"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            style="@style/AppTheme.TextInputLayout"
+            android:hint="@string/room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                style="@style/AppTheme.TextInputEditText"
                 android:id="@+id/roomEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/room"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
+                tools:text = "Hi mom"
                 android:text="@={vm.room}"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -70,21 +75,26 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.AppCompatButton
-                style="@style/AppTheme.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_join"
-                android:enabled="@{vm.inputValid}"
-                android:onClick="@{(view) -> vm.onJoinClicked(view.context)}"
-                android:text="@string/join_room"/>
+            <!--Suppressing RTL warning, I literally want these on the left and right-->
 
             <android.support.v7.widget.AppCompatButton
-                style="@style/AppTheme.Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="@dimen/default_spacing_half"
+                android:textAlignment="center"
+                android:drawableLeft="@drawable/ic_join"
+                tools:enabled="false"
+                android:enabled="@{vm.inputValid}"
+                android:onClick="@{(view) -> vm.onJoinClicked(view.context)}"
+                android:text="@string/join_room"
+                tools:ignore="RtlHardcoded"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/default_spacing_half"
                 android:drawableLeft="@drawable/ic_host"
                 android:enabled="@{vm.inputValid}"
                 android:onClick="@{(view) -> vm.onHostClicked(view.context)}"

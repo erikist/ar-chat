@@ -4,19 +4,41 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/foreground</item>
-        <item name="colorPrimaryDark">@color/background</item>
+        <item name="colorPrimaryDark">@color/default_button_colors</item>
         <item name="colorAccent">@color/accent</item>
+        <item name="colorControlNormal">@color/foreground</item>
         <item name="android:textViewStyle">@style/AppTheme.TextView</item>
+        <item name="android:buttonStyle">@style/AppTheme.Button</item>
         <item name="android:windowBackground">@color/background</item>
     </style>
 
     <style name="AppTheme.Button" parent="AppTheme">
         <item name="android:layout_marginTop">@dimen/default_spacing</item>
         <item name="android:layout_marginBottom">@dimen/default_spacing</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">@dimen/default_spacing</item>
+        <item name="android:textColor">@color/default_button_colors</item>
+        <item name="android:background">@drawable/default_button</item>
     </style>
 
     <style name="AppTheme.TextView" parent="android:Widget.TextView">
         <item name="android:textColor">@color/foreground</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="AppTheme.TextInputEditText" parent="AppTheme.TextView">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout" parent="AppTheme">
+        <item name="android:theme">@style/AppTheme</item>
+        <item name="colorAccent">@color/foreground</item>
+        <item name="colorControlActivated">@color/foreground</item>
+        <item name="colorControlNormal">@color/foreground</item>
+        <item name="android:textColorHint">@color/foreground</item>
+    </style>
+
 </resources>

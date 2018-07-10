@@ -124,4 +124,4 @@ This get's us the base for what need for video, but we still need more! To let G
         <meta-data android:name="com.google.ar.core" android:value="required" />
 ```
 
-On to the nit and grit of the given problem. Create an activity called [`PermissionsActivity`]()
+On to the nit and grit of the given problem. Create an activity called [`PermissionsActivity`](https://github.com/erikist/ar-chat/blob/master/app/src/main/java/com/stablekernel/twilioarchat/ui/permissions/PermissionsActivity.kt)

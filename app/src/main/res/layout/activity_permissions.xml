@@ -18,10 +18,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ProgressBar
-                android:layout_marginRight="@dimen/default_spacing"
                 android:visibility="@{vm.cameraProgressBarVisibility}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <ImageView
+                android:src="@drawable/ic_check"
+                android:visibility="@{vm.cameraCheckVisibility}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <ImageView
+                android:src="@drawable/ic_x"
+                android:visibility="@{vm.cameraExVisibility}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
             <TextView
                 android:layout_gravity="center_vertical"
                 android:text="Camera Permissions"
@@ -35,9 +47,21 @@
             android:layout_height="wrap_content">
             <ProgressBar
                 android:visibility="@{vm.audioProgressBarVisibility}"
-                android:layout_marginRight="@dimen/default_spacing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <ImageView
+                android:src="@drawable/ic_check"
+                android:visibility="@{vm.audioCheckVisibility}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <ImageView
+                android:src="@drawable/ic_x"
+                android:visibility="@{vm.audioExVisibility}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
             <TextView
                 android:layout_gravity="center_vertical"
                 android:text="Audio Permissions"

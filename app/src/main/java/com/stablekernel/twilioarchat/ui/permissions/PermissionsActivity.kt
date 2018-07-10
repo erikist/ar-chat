@@ -28,6 +28,9 @@ class PermissionsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        viewModel.audioPermissionsGranted = permissionsManager.isPermissionGranted(Manifest.permission.MODIFY_AUDIO_SETTINGS) && permissionsManager.isPermissionGranted(Manifest.permission.RECORD_AUDIO)
+        viewModel.cameraPermissionGranted = permissionsManager.isPermissionGranted(Manifest.permission.CAMERA)
+
         permissionsManager.needsPermissionsFor().also {
             permissionsManager.requestPermissions(it)
         }
@@ -40,7 +43,8 @@ class PermissionsActivity : AppCompatActivity() {
             val isGranted = grantResults[index] == PackageManager.PERMISSION_GRANTED
             when (permission) {
                 Manifest.permission.CAMERA -> { viewModel.cameraPermissionGranted = isGranted }
-                Manifest.permission.RECORD_AUDIO, Manifest.permission.MODIFY_AUDIO_SETTINGS -> { viewModel.audioPermissionsGranted = isGranted }
+                Manifest.permission.RECORD_AUDIO -> { viewModel.audioPermissionsGranted = isGranted }
+                Manifest.permission.MODIFY_AUDIO_SETTINGS -> { viewModel.audioPermissionsGranted = isGranted }
             }
         }
     }

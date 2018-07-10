@@ -13,7 +13,7 @@ class PermissionsManager(private val activity: AppCompatActivity, val callModel:
 
     fun requestPermissions(permissions: List<String>) {
         permissions.forEach {
-            if (requiresPermission(it)) {
+            if (isPermissionGranted(it)) {
                 // Permission is not granted
                 // Should we show an explanation?
                 if (ActivityCompat.shouldShowRequestPermissionRationale(activity, it)) {
@@ -36,15 +36,15 @@ class PermissionsManager(private val activity: AppCompatActivity, val callModel:
 
     fun needsPermissionsFor(): List<String> {
         return requiredPermissions.filter {
-            requiresPermission(it)
+            isPermissionGranted(it)
         }
     }
 
-    private fun requiresPermission(permission: String): Boolean =
+    fun isPermissionGranted(permission: String): Boolean =
             ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_GRANTED
 
     companion object {
         private const val TAG = "PermissionsManager"
-        private val requiredPermissions = listOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.MODIFY_AUDIO_SETTINGS)
+        val requiredPermissions = listOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.MODIFY_AUDIO_SETTINGS)
     }
 }

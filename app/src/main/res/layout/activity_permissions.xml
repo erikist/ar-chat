@@ -10,7 +10,40 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:padding="@dimen/default_spacing"
         android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+
+                android:layout_marginRight="@dimen/default_spacing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="Camera Permissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+
+                android:layout_marginRight="@dimen/default_spacing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="Audio Permissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

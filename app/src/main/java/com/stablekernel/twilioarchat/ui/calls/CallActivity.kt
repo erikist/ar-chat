@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.stablekernel.twilioarchat.BuildConfig
 import com.stablekernel.twilioarchat.R
-import com.stablekernel.twilioarchat.config.ExtraKeys
+import com.stablekernel.twilioarchat.config.Constants
 import com.stablekernel.twilioarchat.models.ARDataMessage
 import com.stablekernel.twilioarchat.ui.calls.making.MakingCallActivity
 import com.stablekernel.twilioarchat.ui.calls.receiving.ReceivingCallActivity
@@ -37,9 +37,9 @@ abstract class CallActivity : AppCompatActivity(), CallCapable {
     companion object {
         fun intentFor(context: Context, isHosting: Boolean, roomName: String, username: String): Intent {
             return Intent(context, if (isHosting) MakingCallActivity::class.java else ReceivingCallActivity::class.java)
-                    .putExtra(ExtraKeys.IS_HOSTING, isHosting)
-                    .putExtra(ExtraKeys.ROOM_NAME, roomName)
-                    .putExtra(ExtraKeys.USERNAME, username)
+                    .putExtra(Constants.IS_HOSTING, isHosting)
+                    .putExtra(Constants.ROOM_NAME, roomName)
+                    .putExtra(Constants.USERNAME, username)
         }
     }
 }
@@ -273,9 +273,9 @@ class CallModel(val type: CallType, val roomName: String, val username: String) 
     companion object {
         fun modelFromIntent(intent: Intent): CallModel {
             return CallModel(
-                    if (intent.extras.getBoolean(ExtraKeys.IS_HOSTING)) CallModel.CallType.HOST else CallModel.CallType.JOIN,
-                    intent.extras.getString(ExtraKeys.ROOM_NAME),
-                    intent.extras.getString(ExtraKeys.USERNAME)
+                    if (intent.extras.getBoolean(Constants.IS_HOSTING)) CallModel.CallType.HOST else CallModel.CallType.JOIN,
+                    intent.extras.getString(Constants.ROOM_NAME),
+                    intent.extras.getString(Constants.USERNAME)
             )
         }
     }

@@ -60,7 +60,7 @@ Android build tools will generate a file from your `build.gradle` called `BuildC
 
 For our application, we are going to have two main activities. We are going to have a the `RoomActivity` which is responsible for providing a UI for our users to choose what "Room" they would like to join. A "Room" is a concept for Twilio which is basically an abstraction of the notion of a chatroom. Multiple users can join this so long as they know the Room name. In a more realistic application, you would probably generate this in some way, but for our purposes we are just going to have the user tell us which room they want to either join or create. Additionally, we need to have the user identify themselves, so we will prompt them for a name. In addition, we will have a `CallActivity` which is responsible for connecting to the call, displaying the video and audio and metadata about our Room.
 
-### RoomActivity
+### RoomActivity && RoomActivityViewModel
 
 The creation of the `RoomActivity` is easy-as-pie. We are going to create a layout which has some inputs for username and room name, and let the view model handle validation and user interaction. The Activity is now solely used for configuration -- let's give it a try: 
 
@@ -75,4 +75,53 @@ The creation of the `RoomActivity` is easy-as-pie. We are going to create a layo
     }
 ```
 
+The view model handles user events through two functions and two properties: 
 
+```
+class RoomActivityViewModel : BaseObservable() {
+    var room: String = ""
+        set(value) {
+            field = value
+            notifyChange()
+        }
+    var username: String = ""
+        set(value) {
+            field = value
+            notifyChange()
+        }
+
+    val isInputValid: Boolean
+        get() = room.isNotBlank() && username.isNotBlank()
+
+    fun onJoinClicked(context: Context) =
+        context.startActivity(PermissionsActivity.intentFor(context , false, room, username))
+
+    fun onHostClicked(context: Context) =
+        context.startActivity(PermissionsActivity.intentFor(context , true, room, username))
+}
+```
+We are just trying to collect the username and room name, validate them and move on. In this case, that just means verifying the user put _something_ there. The two onClick methods are solely used to move you into the `PermissionsActivity` and let us know whether or not you are trying to host a call or not. If you are, we need different permissions than if you are not. This is not rocket surgery, so we can move right along.
+
+### Permissions, or "No You Can't Do That"
+For this app, and any app involving ARCore or video chat, you are going to need to make sure the user has the right permissions. We obviously need access to the camera, the microphone, the internet, etc. However, there are few things we still need. Alter your manifest to include the following permissions and features: 
+
+```
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+```
+
+This get's us the base for what need for video, but we still need more! To let Google know that this application uses AR features, but that they are not required, we need to add this in the `<application>` tag inside your manifest: 
+
+```
+        <meta-data android:name="com.google.ar.core" android:value="required" />
+```
+
+On to the nit and grit of the given problem. Create an activity called [`PermissionsActivity`]()
